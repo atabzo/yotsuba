@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bp7qnvpnkmlc0"]
+
+[ext_resource type="Texture2D" uid="uid://cmpiw7kjsgt3y" path="res://images/Yotsuba.png" id="1_ivegd"]
+
+[node name="yotsuba" type="Node2D" unique_id=890180201]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1412521659]
+position = Vector2(-2, -2.0000076)
+scale = Vector2(0.70173913, 0.76106197)
+texture = ExtResource("1_ivegd")
