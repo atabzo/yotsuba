@@ -1,47 +1,11 @@
 [gd_scene format=3 uid="uid://blw2q7jxbds87"]
 
-[ext_resource type="Texture2D" uid="uid://cabgy2lqgrh0k" path="res://images/download (1).png" id="1_emj6c"]
-[ext_resource type="Texture2D" uid="uid://fxrh76p5a2ts" path="res://images/download (2).png" id="2_mrac1"]
-[ext_resource type="Texture2D" uid="uid://cphos4d3mvbvt" path="res://images/download (3).png" id="3_2q4k0"]
-[ext_resource type="Texture2D" uid="uid://bk2ud7wah61xd" path="res://images/download (4).png" id="4_x1amm"]
-[ext_resource type="Texture2D" uid="uid://cb84xlj8am545" path="res://images/download (5).png" id="5_2bfhc"]
-[ext_resource type="Texture2D" uid="uid://c8tqpetke5ocq" path="res://images/download.png" id="6_osidk"]
-
 [node name="Node2D" type="Node2D" unique_id=1013799686]
 
-[node name="Download(1)" type="Sprite2D" parent="." unique_id=1239777060]
-visible = false
-position = Vector2(207, 216.00003)
-scale = Vector2(0.57472825, 0.46875)
-texture = ExtResource("1_emj6c")
-
-[node name="Download(2)" type="Sprite2D" parent="." unique_id=1742807329]
-visible = false
-position = Vector2(754, 202)
-texture = ExtResource("2_mrac1")
-
-[node name="Download(3)" type="Sprite2D" parent="." unique_id=546913134]
-visible = false
-position = Vector2(363, 247)
-texture = ExtResource("3_2q4k0")
-
-[node name="Download(4)" type="Sprite2D" parent="." unique_id=909715517]
-visible = false
-position = Vector2(441, 302)
-texture = ExtResource("4_x1amm")
-
-[node name="Download(5)" type="Sprite2D" parent="." unique_id=266238735]
-visible = false
-position = Vector2(143, 331)
-texture = ExtResource("5_2bfhc")
-
-[node name="Download" type="Sprite2D" parent="." unique_id=1494318762]
-visible = false
-position = Vector2(116, 347)
-texture = ExtResource("6_osidk")
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=626854272]
-offset_left = -12.0
-offset_top = -41.0
-offset_right = 1306.0
-offset_bottom = 753.0
+offset_left = -34.0
+offset_top = -27.0
+offset_right = 1321.0
+offset_bottom = 764.0
+color = Color(0.010176766, 0.163003, 0.10451614, 1)
+metadata/_edit_use_anchors_ = true

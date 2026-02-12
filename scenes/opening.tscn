@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://iob6dwkhhj4h"]
 
 [ext_resource type="VideoStream" uid="uid://b0pf8dp1jgccb" path="res://moving-graphics/yotsuba.ogv" id="1_pk062"]
-[ext_resource type="FontFile" uid="uid://ce1hv4ra0x77c" path="res://fonts/Schoolbell-Regular.ttf" id="2_gafq3"]
+[ext_resource type="PackedScene" uid="uid://csvqyl8e26m0u" path="res://scenes/storyline!.tscn" id="2_gafq3"]
 
 [sub_resource type="GDScript" id="GDScript_gafq3"]
 script/source = "extends VideoStreamPlayer
@@ -25,15 +25,5 @@ offset_bottom = 709.0
 stream = ExtResource("1_pk062")
 script = SubResource("GDScript_gafq3")
 
-[node name="Label" type="Label" parent="VideoStreamPlayer" unique_id=1416411959]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 67.0
-offset_right = 604.0
-offset_bottom = 589.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_fonts/font = ExtResource("2_gafq3")
-theme_override_font_sizes/font_size = 109
-text = "yotsuba's summer adventures!"
-autowrap_mode = 2
+[node name="storyline!" parent="." unique_id=1768813027 instance=ExtResource("2_gafq3")]
+position = Vector2(-14, 17)

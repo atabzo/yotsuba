@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://csvqyl8e26m0u"]
 
 [ext_resource type="FontFile" uid="uid://dkk45xvl1en3k" path="res://fonts/bitcount.ttf" id="1_7p5ts"]
+[ext_resource type="Texture2D" uid="uid://bk2ud7wah61xd" path="res://images/download (4).png" id="2_xba16"]
 
 [node name="storyline!" type="Node2D" unique_id=1768813027]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1861825274]
-offset_left = 262.0
+offset_left = 80.0
 offset_top = 30.0
-offset_right = 1037.0
+offset_right = 720.0
 offset_bottom = 655.0
 color = Color(0.7227823, 0.64194816, 0.32668778, 1)
 
@@ -15,7 +16,7 @@ color = Color(0.7227823, 0.64194816, 0.32668778, 1)
 layout_mode = 0
 offset_left = 7.0
 offset_top = 6.0
-offset_right = 770.0
+offset_right = 633.0
 offset_bottom = 618.0
 color = Color(0.9881249, 0.7917629, 0.64250654, 1)
 
@@ -23,18 +24,42 @@ color = Color(0.9881249, 0.7917629, 0.64250654, 1)
 layout_mode = 0
 offset_left = 7.0
 offset_top = 6.0
-offset_right = 770.0
+offset_right = 633.0
 offset_bottom = 184.0
 color = Color(0.35686275, 1, 0.8235294, 1)
 
 [node name="Label" type="Label" parent="ColorRect/ColorRect2" unique_id=146085363]
 layout_mode = 0
-offset_left = 87.0
+offset_left = 70.0
 offset_top = 33.0
-offset_right = 681.0
+offset_right = 590.0
 offset_bottom = 138.0
 theme_override_colors/font_color = Color(0.32230076, 0.26327166, 0, 1)
 theme_override_fonts/font = ExtResource("1_7p5ts")
 theme_override_font_sizes/font_size = 27
 text = "yotsuba's summer break has started, she needs your help in deciding her quests for this month!"
 autowrap_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/ColorRect2" unique_id=299074873]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 61.0
+offset_top = 219.0
+offset_right = 428.0
+offset_bottom = 295.0
+theme_override_fonts/font = ExtResource("1_7p5ts")
+theme_override_font_sizes/font_size = 24
+text = "walk around the city and talk with people!"
+autowrap_mode = 2
+
+[node name="Button2" type="Button" parent="ColorRect/ColorRect2" unique_id=1811534981]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 312.0
+offset_right = 428.0
+offset_bottom = 389.0
+
+[node name="Download(4)" type="Sprite2D" parent="ColorRect" unique_id=1921098658]
+position = Vector2(525, 532)
+scale = Vector2(0.46361497, 0.4213395)
+texture = ExtResource("2_xba16")
