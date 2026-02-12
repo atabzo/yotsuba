@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://csvqyl8e26m0u"]
+
+[ext_resource type="FontFile" uid="uid://dkk45xvl1en3k" path="res://fonts/bitcount.ttf" id="1_7p5ts"]
+
+[node name="storyline!" type="Node2D" unique_id=1768813027]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1861825274]
+offset_left = 262.0
+offset_top = 30.0
+offset_right = 1037.0
+offset_bottom = 655.0
+color = Color(0.7227823, 0.64194816, 0.32668778, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=1622835179]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 770.0
+offset_bottom = 618.0
+color = Color(0.9881249, 0.7917629, 0.64250654, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect" unique_id=2078784259]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 770.0
+offset_bottom = 184.0
+color = Color(0.35686275, 1, 0.8235294, 1)
+
+[node name="Label" type="Label" parent="ColorRect/ColorRect2" unique_id=146085363]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 33.0
+offset_right = 681.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0.32230076, 0.26327166, 0, 1)
+theme_override_fonts/font = ExtResource("1_7p5ts")
+theme_override_font_sizes/font_size = 27
+text = "yotsuba's summer break has started, she needs your help in deciding her quests for this month!"
+autowrap_mode = 2
