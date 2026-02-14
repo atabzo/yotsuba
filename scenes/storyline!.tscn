@@ -1,18 +1,34 @@
 [gd_scene format=3 uid="uid://csvqyl8e26m0u"]
 
 [ext_resource type="FontFile" uid="uid://dkk45xvl1en3k" path="res://fonts/bitcount.ttf" id="1_7p5ts"]
+[ext_resource type="FontFile" uid="uid://ce1hv4ra0x77c" path="res://fonts/Schoolbell-Regular.ttf" id="2_rft0q"]
 [ext_resource type="Texture2D" uid="uid://bk2ud7wah61xd" path="res://images/download (4).png" id="2_xba16"]
+[ext_resource type="Texture2D" uid="uid://p8dsoc6blckj" path="res://assets/flower.png" id="3_tw3xb"]
+[ext_resource type="Texture2D" uid="uid://cb84xlj8am545" path="res://images/download (5).png" id="5_mhh5u"]
+
+[sub_resource type="GDScript" id="GDScript_mhh5u"]
+script/source = "extends Button
+
+# Path to the scene you want to load
+@export var scene_path: String = \"res://scenes/city.tscn\"
+
+func _ready():
+	pressed.connect(_on_button_pressed)
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file(scene_path)
+"
 
 [node name="storyline!" type="Node2D" unique_id=1768813027]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1861825274]
+[node name="boundary" type="ColorRect" parent="." unique_id=1861825274]
 offset_left = 80.0
 offset_top = 30.0
 offset_right = 720.0
 offset_bottom = 655.0
 color = Color(0.7227823, 0.64194816, 0.32668778, 1)
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=1622835179]
+[node name="body box" type="ColorRect" parent="boundary" unique_id=1622835179]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 6.0
@@ -20,7 +36,7 @@ offset_right = 633.0
 offset_bottom = 618.0
 color = Color(0.9881249, 0.7917629, 0.64250654, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="ColorRect" unique_id=2078784259]
+[node name="header-box" type="ColorRect" parent="boundary" unique_id=2078784259]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 6.0
@@ -28,38 +44,64 @@ offset_right = 633.0
 offset_bottom = 184.0
 color = Color(0.35686275, 1, 0.8235294, 1)
 
-[node name="Label" type="Label" parent="ColorRect/ColorRect2" unique_id=146085363]
+[node name="header" type="Label" parent="boundary/header-box" unique_id=146085363]
 layout_mode = 0
-offset_left = 70.0
+offset_left = 20.0
 offset_top = 33.0
-offset_right = 590.0
-offset_bottom = 138.0
+offset_right = 540.0
+offset_bottom = 153.0
 theme_override_colors/font_color = Color(0.32230076, 0.26327166, 0, 1)
-theme_override_fonts/font = ExtResource("1_7p5ts")
+theme_override_fonts/font = ExtResource("2_rft0q")
 theme_override_font_sizes/font_size = 27
-text = "yotsuba's summer break has started, she needs your help in deciding her quests for this month!"
+text = "yotsuba's summer break has started, she needs your help in deciding her quests for this month... are you ready?"
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="ColorRect/ColorRect2" unique_id=299074873]
-modulate = Color(0, 0, 0, 1)
+[node name="choice-1" type="Button" parent="boundary/header-box" unique_id=299074873]
 layout_mode = 0
-offset_left = 61.0
-offset_top = 219.0
-offset_right = 428.0
-offset_bottom = 295.0
+offset_left = 227.0
+offset_top = 302.0
+offset_right = 585.0
+offset_bottom = 422.0
 theme_override_fonts/font = ExtResource("1_7p5ts")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 30
 text = "walk around the city and talk with people!"
 autowrap_mode = 2
+script = SubResource("GDScript_mhh5u")
 
-[node name="Button2" type="Button" parent="ColorRect/ColorRect2" unique_id=1811534981]
+[node name="choice-2" type="Button" parent="boundary/header-box" unique_id=1811534981]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 312.0
-offset_right = 428.0
-offset_bottom = 389.0
+offset_left = 38.0
+offset_top = 460.0
+offset_right = 393.0
+offset_bottom = 577.0
+theme_override_fonts/font = ExtResource("1_7p5ts")
+theme_override_font_sizes/font_size = 30
+text = "make a flower bag!"
 
-[node name="Download(4)" type="Sprite2D" parent="ColorRect" unique_id=1921098658]
+[node name="cute-flower" type="Sprite2D" parent="boundary/header-box" unique_id=1814975419]
+position = Vector2(620, 65.000015)
+rotation = 0.95818573
+scale = Vector2(0.37214068, 0.34593955)
+texture = ExtResource("3_tw3xb")
+
+[node name="snail" type="Sprite2D" parent="boundary" unique_id=1921098658]
 position = Vector2(525, 532)
 scale = Vector2(0.46361497, 0.4213395)
 texture = ExtResource("2_xba16")
+
+[node name="Label" type="Label" parent="boundary" unique_id=2035268363]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 211.0
+offset_right = 557.0
+offset_bottom = 303.0
+theme_override_colors/font_color = Color(0.13575286, 0.00018520713, 0.3648834, 1)
+theme_override_fonts/font = ExtResource("1_7p5ts")
+theme_override_font_sizes/font_size = 57
+text = "choose a quest:"
+
+[node name="Download(5)" type="Sprite2D" parent="." unique_id=1097493877]
+position = Vector2(210.99991, 412.00003)
+rotation = -0.23911011
+scale = Vector2(0.36476648, 0.3211181)
+texture = ExtResource("5_mhh5u")

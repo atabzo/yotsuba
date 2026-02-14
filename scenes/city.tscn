@@ -3,8 +3,8 @@
 [node name="citymap" type="Node2D" unique_id=11066651]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=94868612]
-offset_left = -63.0
-offset_top = -26.0
-offset_right = 1337.0
-offset_bottom = 766.0
+offset_left = -203.0
+offset_top = -19.0
+offset_right = 1342.0
+offset_bottom = 836.0
 color = Color(0.10222819, 0.14793834, 0.049089678, 1)

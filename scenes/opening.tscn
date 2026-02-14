@@ -18,10 +18,10 @@ func _ready():
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=64064162]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1348681456]
-offset_left = -7.0
-offset_top = -11.0
-offset_right = 1273.0
-offset_bottom = 709.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1281.0
+offset_bottom = 721.0
 stream = ExtResource("1_pk062")
 script = SubResource("GDScript_gafq3")
 
