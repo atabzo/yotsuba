@@ -1,7 +1,7 @@
 extends Node
 
 # Path to your music file
-@export var music_path: String = "res://music/1.mp3"
+@export var music_path: String = "res://music/3.mp3"
 
 # Reference to the AudioStreamPlayer
 var music_player: AudioStreamPlayer

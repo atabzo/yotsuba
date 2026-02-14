@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://i1eta8g2bekr"]
+
+[ext_resource type="PackedScene" uid="uid://bp7qnvpnkmlc0" path="res://scenes/yotsuba.tscn" id="1_wmxxp"]
+
+[node name="flying-yotsuba" type="Node2D" unique_id=1188624310]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1329567035]
+offset_left = -9225.0
+offset_top = -6923.0
+offset_right = 12669.0
+offset_bottom = 7676.0
+
+[node name="yotsuba" parent="." unique_id=1515739901 instance=ExtResource("1_wmxxp")]
+position = Vector2(658, 370)
+
+[node name="Camera2D" type="Camera2D" parent="yotsuba" unique_id=1687019178]
+position = Vector2(-25, -14)

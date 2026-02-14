@@ -2,9 +2,91 @@
 
 [ext_resource type="Texture2D" uid="uid://cmpiw7kjsgt3y" path="res://images/Yotsuba.png" id="1_ivegd"]
 
-[node name="yotsuba" type="Node2D" unique_id=890180201]
+[sub_resource type="GDScript" id="GDScript_ivegd"]
+script/source = "extends CharacterBody2D
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1412521659]
-position = Vector2(-2, -2.0000076)
-scale = Vector2(0.70173913, 0.76106197)
-texture = ExtResource("1_ivegd")
+@export var move_speed := 350.0
+@export var turn_speed := 3.0
+@export var fly_speed := 150.0
+@export var max_height := 200.0
+@export var bank_angle := 15.0        
+@export var bank_smooth := 8.0   
+
+
+var height := 0.0
+
+@onready var animated_sprite := $AnimatedSprite2D
+
+func _physics_process(delta):
+		
+	# TURN (A / D)
+	var turn_input := Input.get_axis(\"move_left\", \"move_right\")
+	rotation += turn_input * turn_speed * delta
+	
+	animated_sprite.flip_h = turn_input < 0
+
+	# VISUAL BANK
+	var target_bank := -turn_input * bank_angle
+	animated_sprite.rotation_degrees = lerp(
+		animated_sprite.rotation_degrees,
+		target_bank,
+		bank_smooth * delta
+	)
+
+
+	# FORWARD MOVEMENT (W)
+	var forward := Input.get_action_strength(\"move_forward\")
+	var direction := Vector2.UP.rotated(rotation)
+	velocity = direction * forward * move_speed
+
+	# FLY UP / DOWN (Space / Shift)
+	if Input.is_action_pressed(\"fly_up\"):
+		height += fly_speed * delta
+	if Input.is_action_pressed(\"fly_down\"):
+		height -= fly_speed * delta
+
+	height = clamp(height, 0.0, max_height)
+
+	# VISUAL FLY EFFECT
+	animated_sprite.position.y = -height
+	animated_sprite.scale = Vector2.ONE * (1.0 + height / 600.0)
+
+	# ANIMATIONS
+	if height > 10:
+		animated_sprite.play(\"fly\")
+	elif forward < 1:
+		animated_sprite.play(\"idle\")
+	else:
+		animated_sprite.play(\"fly\")
+
+	move_and_slide()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivegd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f3y58"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ivegd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="yotsuba" type="CharacterBody2D" unique_id=1515739901]
+script = SubResource("GDScript_ivegd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2037981119]
+light_mask = 2
+shape = SubResource("RectangleShape2D_ivegd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2109678159]
+position = Vector2(0, -15.000001)
+scale = Vector2(0.3752174, 0.34365782)
+sprite_frames = SubResource("SpriteFrames_f3y58")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1496915385]
+position = Vector2(98, 0)
+polygon = PackedVector2Array(0, -1, -12, 16, -23, 33, -47, 39, -62, 47, -73, 51, -71, 56, -64, 80, -64, 95, -99, 100, -132, 93, -138, 61, -132, 48, -151, 44, -183, 23, -198, -10, -204, -34, -180, -73, -157, -73, -142, -86, -137, -107, -142, -127, -119, -127, -105, -146, -91, -140, -66, -138, -63, -131, -46, -99, -53, -88, -53, -86, -27, -80, -5, -51, 3, -24, 1, -5)
