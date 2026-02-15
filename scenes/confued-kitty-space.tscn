@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cg101ol7oygkv"]
+
+[ext_resource type="Texture2D" uid="uid://b7o6jnsxv837c" path="res://more-assets/question-mark-removebg-preview.png" id="1_ntnli"]
+[ext_resource type="Texture2D" uid="uid://blcoa36ppfl31" path="res://more-assets/__reposted-removebg-preview.png" id="2_5utpn"]
+[ext_resource type="FontFile" uid="uid://ce1hv4ra0x77c" path="res://fonts/Schoolbell-Regular.ttf" id="3_6a7lp"]
+
+[sub_resource type="GDScript" id="GDScript_npoq1"]
+script/source = "extends Sprite2D
+
+@export var rotation_angle: float = 15.0  # Rotation in degrees
+@export var switch_speed: float = 0.3     # Time between switches (in seconds)
+
+var time_passed: float = 0.0
+var is_left: bool = false
+
+func _process(delta):
+	time_passed += delta
+	
+	# Switch rotation state when time threshold is reached
+	if time_passed >= switch_speed:
+		time_passed = 0.0
+		is_left = !is_left
+		
+		# Snap between two rotation positions
+		if is_left:
+			rotation = deg_to_rad(-rotation_angle)
+		else:
+			rotation = deg_to_rad(rotation_angle)
+"
+
+[node name="space-quest" type="Node2D" unique_id=607809228]
+
+[node name="background" type="ColorRect" parent="." unique_id=199528758]
+offset_left = 490.0
+offset_top = 310.0
+offset_right = 1230.0
+offset_bottom = 685.0
+color = Color(2.4546682e-06, 0.64586776, 0.43151456, 1)
+
+[node name="sub-background" type="ColorRect" parent="background" unique_id=787091047]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 732.0
+offset_bottom = 365.0
+color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+
+[node name="question-mark" type="Sprite2D" parent="." unique_id=648048369]
+position = Vector2(740.00006, 371.00003)
+scale = Vector2(0.2073316, 0.19891831)
+texture = ExtResource("1_ntnli")
+script = SubResource("GDScript_npoq1")
+
+[node name="confused-kitty" type="Sprite2D" parent="." unique_id=1283835515]
+position = Vector2(637.00006, 483)
+scale = Vector2(0.888, 0.92)
+texture = ExtResource("2_5utpn")
+
+[node name="text" type="Label" parent="." unique_id=213331404]
+offset_left = 800.0
+offset_top = 431.0
+offset_right = 1167.0
+offset_bottom = 564.0
+theme_override_fonts/font = ExtResource("3_6a7lp")
+theme_override_font_sizes/font_size = 47
+text = "wait... building a rocket? is she fr?"
+autowrap_mode = 2
