@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 BackgroundMusic="*uid://o4lyo5p7jpcl"
+DialogueData="*uid://weiewnfofx7s"
 
 [display]
 

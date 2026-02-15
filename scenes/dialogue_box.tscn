@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://dlc4n6d3vyfyu"]
+
+[ext_resource type="FontFile" uid="uid://ce1hv4ra0x77c" path="res://fonts/Schoolbell-Regular.ttf" id="1_rc1id"]
+[ext_resource type="Texture2D" uid="uid://blcoa36ppfl31" path="res://more-assets/__reposted-removebg-preview.png" id="2_tm68y"]
+[ext_resource type="Texture2D" uid="uid://b7o6jnsxv837c" path="res://more-assets/question-mark-removebg-preview.png" id="3_hvmm2"]
+
+[sub_resource type="GDScript" id="GDScript_tm68y"]
+script/source = "extends Control
+
+@export var text_speed: float = 0.05  # Seconds per character
+
+@onready var label = $Background/DialogueLabel
+@onready var continue_icon = $ContinueIcon
+
+var current_dialogue: Array = []
+var current_line: int = 0
+var is_typing: bool = false
+var current_text: String = \"\"
+var char_index: int = 0
+
+signal dialogue_finished
+
+func _ready():
+	continue_icon.visible = false
+
+func start_dialogue(dialogue_key: String):
+	visible = true
+	current_dialogue = DialogueData.get_dialogue(dialogue_key)
+	current_line = 0
+	show_next_line()
+
+func show_next_line():
+	if current_line >= current_dialogue.size():
+		emit_signal(\"dialogue_finished\")
+		return
+	
+	current_text = current_dialogue[current_line]
+	char_index = 0
+	label.text = \"\"
+	is_typing = true
+	continue_icon.visible = false
+	
+	_type_text()
+
+func _type_text():
+	if char_index < current_text.length():
+		label.text += current_text[char_index]
+		char_index += 1
+		await get_tree().create_timer(text_speed).timeout
+		_type_text()
+	else:
+		is_typing = false
+		continue_icon.visible = true
+
+func _input(event):
+	if not visible:
+		return
+		
+	if event.is_action_pressed(\"ui_accept\"):  # Space or Enter
+		if is_typing:
+			# Skip typing animation, show full text immediately
+			label.text = current_text
+			char_index = current_text.length()
+			is_typing = false
+			continue_icon.visible = true
+		else:
+			# Move to next line
+			current_line += 1
+			show_next_line()
+"
+
+[node name="dialogue-box" type="Control" unique_id=981671343]
+layout_mode = 3
+anchor_left = 0.19800001
+anchor_top = 0.147
+anchor_right = 0.79800004
+anchor_bottom = 0.72400004
+offset_left = 321.56
+offset_top = 249.16
+offset_right = 215.55994
+offset_bottom = 148.71997
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_tm68y")
+
+[node name="background" type="Panel" parent="." unique_id=420542997]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -656.0
+offset_top = -259.0
+offset_right = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="sub-background" type="ColorRect" parent="background" unique_id=1942952653]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 639.0
+offset_bottom = 246.0
+color = Color(0.55291224, 0.64044356, 0.13457909, 1)
+
+[node name="text" type="Label" parent="background" unique_id=1711963433]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 72.0
+offset_right = 604.0
+offset_bottom = 207.0
+theme_override_colors/font_color = Color(0.1510199, 0.00029042095, 0.34973353, 1)
+theme_override_fonts/font = ExtResource("1_rc1id")
+theme_override_font_sizes/font_size = 44
+text = "wait... building a rocket? is she fr?"
+autowrap_mode = 2
+
+[node name="confused-kitty" type="Sprite2D" parent="background" unique_id=1475477715]
+position = Vector2(107.99998, 124.000015)
+scale = Vector2(0.5569999, 0.58699995)
+texture = ExtResource("2_tm68y")
+
+[node name="question-mark" type="Sprite2D" parent="background" unique_id=1329246174]
+position = Vector2(189.00012, 68)
+scale = Vector2(0.2247596, 0.24639428)
+texture = ExtResource("3_hvmm2")

@@ -11,7 +11,7 @@ offset_right = 12375.0
 offset_bottom = 9381.0
 
 [node name="yotsuba" parent="." unique_id=1515739901 instance=ExtResource("1_wmxxp")]
-position = Vector2(663, 365)
+position = Vector2(664, 362)
 
 [node name="Camera2D" type="Camera2D" parent="yotsuba" unique_id=1687019178]
 position = Vector2(-25, -14)
