@@ -1,3 +1,56 @@
 [gd_scene format=3 uid="uid://cvcvhq0a4w4vk"]
 
+[ext_resource type="Texture2D" uid="uid://dck0mrx47aste" path="res://more-assets/Yotsuba to！.jpg" id="1_04jqm"]
+[ext_resource type="PackedScene" uid="uid://dlc4n6d3vyfyu" path="res://scenes/dialogue_box.tscn" id="1_n1k2c"]
+[ext_resource type="FontFile" uid="uid://ce1hv4ra0x77c" path="res://fonts/Schoolbell-Regular.ttf" id="2_lpl41"]
+
+[sub_resource type="GDScript" id="GDScript_gclkd"]
+script/source = "extends Node2D  # or whatever your root node type is
+
+@onready var dialogue_box = $DialogueBox
+
+func _ready():
+	# Connect the signal first
+	dialogue_box.dialogue_finished.connect(_on_dialogue_finished)
+	# Then start dialogue
+	start_dialogue()
+
+func start_dialogue():
+	dialogue_box.start_dialogue(\"intro\")
+	
+func _on_dialogue_finished():
+	print(\"Dialogue finished!\")
+	dialogue_box.visible = false
+	# Continue with your game here
+"
+
 [node name="rocket-quest" type="Node2D" unique_id=701691751]
+script = SubResource("GDScript_gclkd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=437425874]
+offset_left = -21.0
+offset_top = -50.0
+offset_right = 1333.0
+offset_bottom = 756.0
+
+[node name="YotsubaTo！" type="Sprite2D" parent="ColorRect" unique_id=715035161]
+position = Vector2(320, 343)
+texture = ExtResource("1_04jqm")
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1369414744]
+layout_mode = 0
+offset_left = 678.0
+offset_top = 331.0
+offset_right = 1258.0
+offset_bottom = 425.0
+theme_override_colors/font_color = Color(0.28918275, 0.0010401055, 0.5915678, 1)
+theme_override_fonts/font = ExtResource("2_lpl41")
+theme_override_font_sizes/font_size = 68
+text = "BUILDING A ROCKET!!!"
+
+[node name="dialogue_box" parent="." unique_id=981671343 instance=ExtResource("1_n1k2c")]
+visible = false
+offset_left = 1248.0
+offset_top = 694.0
+offset_right = 1248.0
+offset_bottom = 694.0

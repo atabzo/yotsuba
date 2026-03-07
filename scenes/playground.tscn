@@ -1,3 +1,8 @@
 [gd_scene format=3 uid="uid://blw2q7jxbds87"]
 
+[ext_resource type="PackedScene" uid="uid://i1eta8g2bekr" path="res://scenes/flying_yotsuba.tscn" id="1_hddm4"]
+
 [node name="Node2D" type="Node2D" unique_id=1013799686]
+
+[node name="flying-yotsuba" parent="." unique_id=1188624310 instance=ExtResource("1_hddm4")]
+position = Vector2(-9, -50)

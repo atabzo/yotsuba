@@ -67,7 +67,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="yotsuba-img" type="Sprite2D" parent="ColorRect" unique_id=492006553]
-position = Vector2(992.00006, 406.00003)
+position = Vector2(1007, 404)
 scale = Vector2(0.9538044, 0.98641306)
 texture = ExtResource("2_m75kp")
 

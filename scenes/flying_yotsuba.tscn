@@ -2,16 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://bp7qnvpnkmlc0" path="res://scenes/yotsuba.tscn" id="1_wmxxp"]
 
+[sub_resource type="TileSet" id="TileSet_wmxxp"]
+
 [node name="flying-yotsuba" type="Node2D" unique_id=1188624310]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1329567035]
-offset_left = -9519.0
-offset_top = -5218.0
-offset_right = 12375.0
-offset_bottom = 9381.0
+offset_left = -9489.0
+offset_top = -5552.0
+offset_right = 12405.0
+offset_bottom = 9047.0
 
 [node name="yotsuba" parent="." unique_id=1515739901 instance=ExtResource("1_wmxxp")]
-position = Vector2(664, 362)
+position = Vector2(650, 373)
 
 [node name="Camera2D" type="Camera2D" parent="yotsuba" unique_id=1687019178]
-position = Vector2(-25, -14)
+position = Vector2(-1, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=574738861]
+tile_set = SubResource("TileSet_wmxxp")

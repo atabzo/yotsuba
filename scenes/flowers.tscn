@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://bhmwcj8aca7g6"]
+
+[sub_resource type="GDScript" id="GDScript_rf3iv"]
+script/source = "extends Area2D
+
+signal flower_placed(flower, snap_point)
+
+@export var flower_type: String = \"rose\"
+@export var flower_color: Color = Color.RED
+
+var dragging: bool = false
+var drag_offset: Vector2 = Vector2.ZERO
+var original_position: Vector2
+var original_scale: Vector2
+var snapped: bool = false
+var snapped_slot_index: int = -1
+var flower_ring = null
+	
+@onready var sprite = $Sprite2D
+
+func _ready():
+	original_position = global_position
+	original_scale = scale
+	
+	# Make it respond to input
+	input_pickable = true
+	
+	# Apply color tint
+	sprite.modulate = flower_color
+
+	# Connect signals
+	input_event.connect(_on_input_event)
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+
+func _on_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				start_drag()
+			else:
+				end_drag()
+
+func _on_mouse_entered():
+	if not dragging and not snapped:
+		# Slight hover effect
+		var tween = create_tween()
+		tween.tween_property(self, \"scale\", original_scale * 1.1, 0.2)
+
+func _on_mouse_exited():
+	if not dragging and not snapped:
+		var tween = create_tween()
+		tween.tween_property(self, \"scale\", original_scale, 0.2)
+
+func start_drag():
+	if snapped:
+		# Remove from ring
+		if flower_ring:
+			flower_ring.free_slot(snapped_slot_index)
+		snapped = false
+		snapped_slot_index = -1
+
+	dragging = true
+	drag_offset = global_position - get_global_mouse_position()
+	z_index = 100  # Bring to front
+	
+	# Scale up slightly when picked up
+	var tween = create_tween()
+	tween.tween_property(self, \"scale\", original_scale * 1.2, 0.1)
+
+func end_drag():
+	dragging = false
+	z_index = 0
+	
+	# Check if near a snap point
+	if flower_ring:
+		var snap_point = flower_ring.get_nearest_snap_point(global_position)
+		
+		if snap_point:
+			# Snap to the ring
+			snap_to_point(snap_point)
+		else:
+			# Return to original position
+			return_to_start()
+	else:
+		return_to_start()
+
+func snap_to_point(snap_point):
+	snapped = true
+	snapped_slot_index = snap_point.index
+	
+	# Get the world position of the snap point
+	var target_pos = flower_ring.to_global(snap_point.position)
+	var target_rotation = snap_point.rotation
+	
+	# Animate into place
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(self, \"global_position\", target_pos, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, \"rotation\", target_rotation, 0.3)
+	tween.tween_property(self, \"scale\", original_scale, 0.2)
+	
+	# Mark slot as occupied
+	flower_ring.occupy_slot(snap_point.index, self)
+	
+	# Play sound effect here
+	emit_signal(\"flower_placed\", self, snap_point)
+
+func return_to_start():
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(self, \"global_position\", original_position, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, \"rotation\", 0, 0.3)
+	tween.tween_property(self, \"scale\", original_scale, 0.2)
+
+func _process(delta):
+	if dragging:
+		global_position = get_global_mouse_position() + drag_offset
+		
+		# Optional: Add slight rotation while dragging
+		rotation = sin(Time.get_ticks_msec() * 0.005) * 0.1
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_51en4"]
+
+[node name="Area2D" type="Area2D" unique_id=1464830034]
+script = SubResource("GDScript_rf3iv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1776193255]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900232390]
+shape = SubResource("CircleShape2D_51en4")
+debug_color = Color(0.58968073, 0.5478765, 1.1551381e-06, 0.41960785)

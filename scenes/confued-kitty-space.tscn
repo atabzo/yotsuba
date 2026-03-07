@@ -46,14 +46,14 @@ offset_bottom = 365.0
 color = Color(0.16924527, 0.1692453, 0.16924527, 1)
 
 [node name="question-mark" type="Sprite2D" parent="." unique_id=648048369]
-position = Vector2(740.00006, 371.00003)
+position = Vector2(717, 389)
 scale = Vector2(0.2073316, 0.19891831)
 texture = ExtResource("1_ntnli")
 script = SubResource("GDScript_npoq1")
 
 [node name="confused-kitty" type="Sprite2D" parent="." unique_id=1283835515]
-position = Vector2(637.00006, 483)
-scale = Vector2(0.888, 0.92)
+position = Vector2(626.00006, 507)
+scale = Vector2(0.74399996, 0.7380001)
 texture = ExtResource("2_5utpn")
 
 [node name="text" type="Label" parent="." unique_id=213331404]
