@@ -7,13 +7,13 @@
 [node name="flying-yotsuba" type="Node2D" unique_id=1188624310]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1329567035]
-offset_left = -9489.0
-offset_top = -5552.0
-offset_right = 12405.0
-offset_bottom = 9047.0
+offset_left = -9845.0
+offset_top = -3482.0
+offset_right = 12049.0
+offset_bottom = 11117.0
 
 [node name="yotsuba" parent="." unique_id=1515739901 instance=ExtResource("1_wmxxp")]
-position = Vector2(650, 373)
+position = Vector2(644, 359)
 
 [node name="Camera2D" type="Camera2D" parent="yotsuba" unique_id=1687019178]
 position = Vector2(-1, 1)
