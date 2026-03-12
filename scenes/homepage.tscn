@@ -52,7 +52,7 @@ offset_left = -73.0
 offset_top = -16.0
 offset_right = 1291.0
 offset_bottom = 802.0
-color = Color(6.9187955e-08, 0.14971477, 0.07230725, 1)
+color = Color(0, 0.103785284, 0.28837565, 1)
 
 [node name="header" type="Label" parent="ColorRect" unique_id=1942840915]
 layout_mode = 0
@@ -73,10 +73,10 @@ texture = ExtResource("2_m75kp")
 
 [node name="start" type="Button" parent="ColorRect" unique_id=1183745298]
 layout_mode = 0
-offset_left = 187.0
-offset_top = 546.0
-offset_right = 594.0
-offset_bottom = 654.0
+offset_left = 212.0
+offset_top = 560.0
+offset_right = 619.0
+offset_bottom = 668.0
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
