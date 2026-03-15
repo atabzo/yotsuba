@@ -74,12 +74,12 @@ func _input(event):
 layout_mode = 3
 anchor_left = 0.19800001
 anchor_top = 0.147
-anchor_right = 0.79800004
-anchor_bottom = 0.72400004
+anchor_right = 0.785
+anchor_bottom = 0.81000006
 offset_left = 321.56
 offset_top = 307.16
-offset_right = 215.55994
-offset_bottom = 148.71997
+offset_right = 232.19995
+offset_bottom = 86.79993
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_tm68y")
@@ -92,26 +92,27 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -656.0
-offset_top = -259.0
-offset_right = 1.0
+offset_left = -607.0
+offset_top = -316.0
+offset_right = 50.0
+offset_bottom = -57.0
 grow_horizontal = 0
 grow_vertical = 0
 
 [node name="sub-background" type="ColorRect" parent="background" unique_id=1942952653]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 12.0
-offset_right = 639.0
-offset_bottom = 246.0
+offset_left = 14.0
+offset_top = 9.0
+offset_right = 638.0
+offset_bottom = 243.0
 color = Color(0.16862746, 0.16862746, 0.16862746, 1)
 
 [node name="text" type="Label" parent="background" unique_id=1711963433]
 layout_mode = 0
-offset_left = 269.0
-offset_top = 72.0
-offset_right = 604.0
-offset_bottom = 207.0
+offset_left = 257.0
+offset_top = 69.0
+offset_right = 592.0
+offset_bottom = 204.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_rc1id")
 theme_override_font_sizes/font_size = 44
@@ -119,7 +120,7 @@ text = "wait... building a rocket? is she fr?"
 autowrap_mode = 2
 
 [node name="confused-kitty" type="Sprite2D" parent="background" unique_id=1475477715]
-position = Vector2(110.99998, 139.00002)
+position = Vector2(108.99998, 121.000015)
 scale = Vector2(0.5569999, 0.58699995)
 texture = ExtResource("2_tm68y")
 

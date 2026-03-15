@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://bo7dsfqpu1cv3"]
 
-[ext_resource type="FontFile" uid="uid://ce1hv4ra0x77c" path="res://fonts/Schoolbell-Regular.ttf" id="1_t4tkb"]
-[ext_resource type="Texture2D" uid="uid://c4m1knlkope7d" path="res://images/🌿.png" id="2_m75kp"]
+[ext_resource type="FontFile" uid="uid://cn2v8ysvi03n6" path="res://add-fonts/Advercase-Regular.otf" id="2_afsfg"]
 [ext_resource type="FontFile" uid="uid://dkk45xvl1en3k" path="res://fonts/bitcount.ttf" id="3_afsfg"]
-[ext_resource type="Texture2D" uid="uid://cm568chdjbfik" path="res://assets/flowers (4).png" id="4_8rasq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ur2nx"]
 
@@ -22,61 +20,34 @@ func _on_button_pressed():
 	get_tree().change_scene_to_file(scene_path)
 "
 
-[sub_resource type="GDScript" id="GDScript_m75kp"]
-script/source = "extends Sprite2D
-
-# Animation settings
-@export var rotation_angle: float = 15.0  # Degrees to rotate (each direction)
-@export var animation_speed: float = 2.0  # Speed of the animation
-@export var random_offset: bool = true    # Start at random point in animation
-
-var time_passed: float = 0.0
-
-func _ready():
-	# Start at a random point in the animation cycle
-	if random_offset:
-		time_passed = randf() * TAU  # TAU = 2 * PI
-
-func _process(delta):
-	time_passed += delta * animation_speed
-	
-	# Calculate rotation using sine wave for smooth back-and-forth motion
-	var angle = sin(time_passed) * deg_to_rad(rotation_angle)
-	rotation = angle
-"
-
 [node name="homepage" type="Node2D" unique_id=323682692]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=366527157]
-offset_left = -73.0
-offset_top = -16.0
-offset_right = 1291.0
-offset_bottom = 802.0
-color = Color(0, 0.103785284, 0.28837565, 1)
+offset_left = -58.0
+offset_top = -39.0
+offset_right = 1306.0
+offset_bottom = 779.0
+color = Color(0.7560471, 0.82996774, 1.1551381e-06, 1)
 
 [node name="header" type="Label" parent="ColorRect" unique_id=1942840915]
 layout_mode = 0
-offset_left = 86.0
-offset_top = 265.0
-offset_right = 817.0
-offset_bottom = 523.0
-theme_override_fonts/font = ExtResource("1_t4tkb")
-theme_override_font_sizes/font_size = 81
+offset_left = 369.0
+offset_top = 200.0
+offset_right = 1030.0
+offset_bottom = 408.0
+theme_override_colors/font_color = Color(1, 0, 0.4392157, 1)
+theme_override_fonts/font = ExtResource("2_afsfg")
+theme_override_font_sizes/font_size = 79
 text = "Yotsuba's Summer Adventures!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="yotsuba-img" type="Sprite2D" parent="ColorRect" unique_id=492006553]
-position = Vector2(1007, 404)
-scale = Vector2(0.9538044, 0.98641306)
-texture = ExtResource("2_m75kp")
-
 [node name="start" type="Button" parent="ColorRect" unique_id=1183745298]
 layout_mode = 0
-offset_left = 212.0
-offset_top = 560.0
-offset_right = 619.0
-offset_bottom = 668.0
+offset_left = 404.0
+offset_top = 534.0
+offset_right = 941.0
+offset_bottom = 632.0
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -94,10 +65,5 @@ theme_override_fonts/font = ExtResource("3_afsfg")
 theme_override_font_sizes/font_size = 41
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ur2nx")
 text = "start the quest!"
+expand_icon = true
 script = SubResource("GDScript_t4tkb")
-
-[node name="flower" type="Sprite2D" parent="ColorRect" unique_id=361044065]
-position = Vector2(154, 145)
-scale = Vector2(1.2230768, 1.2923388)
-texture = ExtResource("4_8rasq")
-script = SubResource("GDScript_m75kp")
