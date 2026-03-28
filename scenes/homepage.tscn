@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://bo7dsfqpu1cv3"]
 
-[ext_resource type="FontFile" uid="uid://cn2v8ysvi03n6" path="res://add-fonts/Advercase-Regular.otf" id="2_afsfg"]
-[ext_resource type="FontFile" uid="uid://dkk45xvl1en3k" path="res://fonts/bitcount.ttf" id="3_afsfg"]
+[ext_resource type="Texture2D" uid="uid://q42qfyh7rpdv" path="res://images/_ 🍀 ⸝⸝ 𝗬𝘰𝗧𝘴𝗨𝘣𝗔 &_ᐟ ✦⸝⸝.png" id="1_m75kp"]
+[ext_resource type="FontFile" uid="uid://crvrhuyxj2p3h" path="res://add-fonts/windsor-pro-cufonfonts/WindsorProBold.TTF" id="2_afsfg"]
+[ext_resource type="FontFile" uid="uid://b2g4r1cn653qs" path="res://add-fonts/mosko_mappa.otf" id="3_8rasq"]
+[ext_resource type="Texture2D" uid="uid://75j2v3r5p3iv" path="res://frame.png" id="4_ur2nx"]
+[ext_resource type="Texture2D" uid="uid://d3v0b4hetkc16" path="res://assets/flowers (2).png" id="5_vpfph"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ur2nx"]
 
@@ -22,32 +25,24 @@ func _on_button_pressed():
 
 [node name="homepage" type="Node2D" unique_id=323682692]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=366527157]
-offset_left = -58.0
-offset_top = -39.0
-offset_right = 1306.0
-offset_bottom = 779.0
-color = Color(0.7560471, 0.82996774, 1.1551381e-06, 1)
+[node name="ColorRect" type="ColorRect" parent="." unique_id=39027779]
+offset_left = -15.0
+offset_top = -6.0
+offset_right = 1305.0
+offset_bottom = 728.0
+color = Color(0.8151035, 0.97175056, 0.53552765, 1)
 
-[node name="header" type="Label" parent="ColorRect" unique_id=1942840915]
-layout_mode = 0
-offset_left = 369.0
-offset_top = 200.0
-offset_right = 1030.0
-offset_bottom = 408.0
-theme_override_colors/font_color = Color(1, 0, 0.4392157, 1)
-theme_override_fonts/font = ExtResource("2_afsfg")
-theme_override_font_sizes/font_size = 79
-text = "Yotsuba's Summer Adventures!"
-horizontal_alignment = 1
-autowrap_mode = 2
+[node name="🍀⸝⸝𝗬𝘰𝗧𝘴𝗨𝘣𝗔&ᐟ✦⸝⸝" type="Sprite2D" parent="ColorRect" unique_id=736221886]
+position = Vector2(971.99994, 411.00003)
+scale = Vector2(0.59476906, 0.64266306)
+texture = ExtResource("1_m75kp")
 
 [node name="start" type="Button" parent="ColorRect" unique_id=1183745298]
 layout_mode = 0
-offset_left = 404.0
-offset_top = 534.0
-offset_right = 941.0
-offset_bottom = 632.0
+offset_left = 311.0
+offset_top = 516.0
+offset_right = 702.0
+offset_bottom = 606.0
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -61,9 +56,32 @@ theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_afsfg")
+theme_override_fonts/font = ExtResource("2_afsfg")
 theme_override_font_sizes/font_size = 41
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ur2nx")
 text = "start the quest!"
 expand_icon = true
 script = SubResource("GDScript_t4tkb")
+
+[node name="header" type="Label" parent="ColorRect" unique_id=1942840915]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 186.0
+offset_right = 851.0
+offset_bottom = 563.0
+theme_override_colors/font_color = Color(1.2513996e-06, 0.45491028, 0.44914764, 1)
+theme_override_fonts/font = ExtResource("3_8rasq")
+theme_override_font_sizes/font_size = 101
+text = "Yotsuba's Summer Adventures!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Frame" type="Sprite2D" parent="ColorRect" unique_id=132169657]
+position = Vector2(660, 369.00003)
+scale = Vector2(2.26431, 1.8428571)
+texture = ExtResource("4_ur2nx")
+
+[node name="Flowers(2)" type="Sprite2D" parent="." unique_id=200500542]
+position = Vector2(188.99998, 118.000015)
+scale = Vector2(1.6307693, 1.6311475)
+texture = ExtResource("5_vpfph")

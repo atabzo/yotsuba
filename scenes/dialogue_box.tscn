@@ -101,10 +101,10 @@ grow_vertical = 0
 
 [node name="sub-background" type="ColorRect" parent="background" unique_id=1942952653]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 9.0
-offset_right = 638.0
-offset_bottom = 243.0
+offset_left = 24.0
+offset_top = 13.0
+offset_right = 648.0
+offset_bottom = 247.0
 color = Color(0.16862746, 0.16862746, 0.16862746, 1)
 
 [node name="text" type="Label" parent="background" unique_id=1711963433]

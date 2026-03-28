@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://csvqyl8e26m0u"]
 
 [ext_resource type="FontFile" uid="uid://dkk45xvl1en3k" path="res://fonts/bitcount.ttf" id="1_7p5ts"]
-[ext_resource type="FontFile" uid="uid://crvrhuyxj2p3h" path="res://add-fonts/windsor-pro-cufonfonts/WindsorProBold.TTF" id="1_rft0q"]
-[ext_resource type="Texture2D" uid="uid://85mjy3pb381r" path="res://ddddd.png" id="3_tw3xb"]
 
 [sub_resource type="GDScript" id="GDScript_mhh5u"]
 script/source = "extends Button
@@ -44,13 +42,13 @@ color = Color(0.41183257, 0.00094634685, 0.56918454, 1)
 
 [node name="header" type="Label" parent="boundary/header-box" unique_id=146085363]
 layout_mode = 0
-offset_left = 285.0
-offset_top = 574.0
-offset_right = 1211.0
-offset_bottom = 781.0
+offset_left = 51.0
+offset_top = 130.0
+offset_right = 977.0
+offset_bottom = 337.0
 theme_override_colors/font_color = Color(0.34844884, 0.0014610571, 0.622956, 1)
-theme_override_fonts/font = ExtResource("1_rft0q")
-theme_override_font_sizes/font_size = 52
+theme_override_fonts/font = ExtResource("1_7p5ts")
+theme_override_font_sizes/font_size = 43
 text = "yotsuba's summer break has started, she needs your help in deciding her quests for this month... are you ready?"
 autowrap_mode = 2
 
@@ -75,11 +73,6 @@ offset_bottom = 436.0
 theme_override_fonts/font = ExtResource("1_7p5ts")
 theme_override_font_sizes/font_size = 30
 text = "make a flower bag!"
-
-[node name="Ddddd" type="Sprite2D" parent="boundary/header-box" unique_id=1521173602]
-position = Vector2(532.00006, 319.5)
-scale = Vector2(0.8140624, 0.6263889)
-texture = ExtResource("3_tw3xb")
 
 [node name="Label" type="Label" parent="boundary" unique_id=2035268363]
 layout_mode = 0

@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://68y8jabqwt7r"]
 
+[sub_resource type="TileSet" id="TileSet_txhch"]
+
 [node name="citymap" type="Node2D" unique_id=11066651]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=94868612]
-offset_left = -57.0
-offset_top = -54.0
-offset_right = 1310.0
-offset_bottom = 773.0
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 1303.0
+offset_bottom = 742.0
 color = Color(0.10222819, 0.14793834, 0.049089678, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=375066926]
+tile_set = SubResource("TileSet_txhch")

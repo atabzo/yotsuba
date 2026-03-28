@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cvcvhq0a4w4vk"]
 
-[ext_resource type="Texture2D" uid="uid://dck0mrx47aste" path="res://more-assets/Yotsuba to！.jpg" id="1_04jqm"]
 [ext_resource type="PackedScene" uid="uid://dlc4n6d3vyfyu" path="res://scenes/dialogue_box.tscn" id="1_n1k2c"]
 [ext_resource type="FontFile" uid="uid://ce1hv4ra0x77c" path="res://fonts/Schoolbell-Regular.ttf" id="2_lpl41"]
 
@@ -32,10 +31,6 @@ offset_left = -21.0
 offset_top = -50.0
 offset_right = 1333.0
 offset_bottom = 756.0
-
-[node name="YotsubaTo！" type="Sprite2D" parent="ColorRect" unique_id=715035161]
-position = Vector2(320, 343)
-texture = ExtResource("1_04jqm")
 
 [node name="Label" type="Label" parent="ColorRect" unique_id=1369414744]
 layout_mode = 0
