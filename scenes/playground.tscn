@@ -5,4 +5,4 @@
 [node name="Node2D" type="Node2D" unique_id=1013799686]
 
 [node name="flying-yotsuba" parent="." unique_id=1188624310 instance=ExtResource("1_hddm4")]
-position = Vector2(-9, -50)
+position = Vector2(-31, -53)

@@ -27,25 +27,24 @@ func _on_dialogue_finished():
 script = SubResource("GDScript_gclkd")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=437425874]
-offset_left = -21.0
-offset_top = -50.0
-offset_right = 1333.0
-offset_bottom = 756.0
+offset_left = -53.0
+offset_top = -42.0
+offset_right = 1301.0
+offset_bottom = 764.0
 
 [node name="Label" type="Label" parent="ColorRect" unique_id=1369414744]
 layout_mode = 0
-offset_left = 678.0
-offset_top = 331.0
-offset_right = 1258.0
-offset_bottom = 425.0
+offset_left = 408.0
+offset_top = 345.0
+offset_right = 988.0
+offset_bottom = 439.0
 theme_override_colors/font_color = Color(0.28918275, 0.0010401055, 0.5915678, 1)
 theme_override_fonts/font = ExtResource("2_lpl41")
 theme_override_font_sizes/font_size = 68
 text = "BUILDING A ROCKET!!!"
 
 [node name="dialogue_box" parent="." unique_id=981671343 instance=ExtResource("1_n1k2c")]
-visible = false
-offset_left = 1248.0
-offset_top = 694.0
-offset_right = 1248.0
-offset_bottom = 694.0
+offset_left = 1247.0
+offset_top = 626.0
+offset_right = 1247.0
+offset_bottom = 626.0

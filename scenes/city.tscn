@@ -5,10 +5,10 @@
 [node name="citymap" type="Node2D" unique_id=11066651]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=94868612]
-offset_left = -20.0
-offset_top = -14.0
-offset_right = 1303.0
-offset_bottom = 742.0
+offset_left = -59.0
+offset_top = -23.0
+offset_right = 1264.0
+offset_bottom = 733.0
 color = Color(0.10222819, 0.14793834, 0.049089678, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=375066926]

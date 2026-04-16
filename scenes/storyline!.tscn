@@ -15,7 +15,7 @@ func _on_button_pressed():
 	get_tree().change_scene_to_file(scene_path)
 "
 
-[node name="storyline!" type="Node2D" unique_id=1768813027]
+[node name="story-opener" type="Node2D" unique_id=1768813027]
 
 [node name="boundary" type="ColorRect" parent="." unique_id=1861825274]
 offset_left = 152.0
