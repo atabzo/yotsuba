@@ -1,96 +1,21 @@
 [gd_scene format=3 uid="uid://csvqyl8e26m0u"]
 
-[ext_resource type="FontFile" uid="uid://dkk45xvl1en3k" path="res://assets/fonts/bitcount.ttf" id="1_7p5ts"]
-
-[sub_resource type="GDScript" id="GDScript_mhh5u"]
-script/source = "extends Button
-
-# Path to the scene you want to load
-@export var scene_path: String = \"res://scenes/city.tscn\"
-
-func _ready():
-	pressed.connect(_on_button_pressed)
-
-func _on_button_pressed():
-	get_tree().change_scene_to_file(scene_path)
-"
+[ext_resource type="Texture2D" uid="uid://r7y5knbr33mi" path="res://assets/buttons/photo_2026-08-12_04-10-55 (2).jpg" id="1_7p5ts"]
 
 [node name="story-opener" type="Node2D" unique_id=1768813027]
 
-[node name="boundary" type="ColorRect" parent="." unique_id=1861825274]
-offset_left = 52.0
-offset_top = 70.0
-offset_right = 1090.0
-offset_bottom = 566.0
-color = Color(0.4312263, 0.001075626, 0.5987595, 1)
-metadata/_edit_use_anchors_ = true
+[node name="ColorRect" type="ColorRect" parent="." unique_id=222121052]
+offset_left = -108.0
+offset_top = 25.0
+offset_right = 1367.0
+offset_bottom = 885.0
 
-[node name="body box" type="ColorRect" parent="boundary" unique_id=1622835179]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 1030.0
-offset_bottom = 486.0
-color = Color(0.371277, 0.0009647328, 0.9535741, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="header-box" type="ColorRect" parent="boundary" unique_id=2078784259]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 1030.0
-offset_bottom = 98.0
-color = Color(0.41183257, 0.00094634685, 0.56918454, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="header" type="Label" parent="boundary/header-box" unique_id=146085363]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = -0.015594542
-anchor_bottom = -0.44680852
-offset_left = 51.0
-offset_top = 130.0
-offset_right = 977.0
-offset_bottom = 337.0
-theme_override_colors/font_color = Color(0.8193783, 0.92162, 7.70092e-07, 1)
-theme_override_fonts/font = ExtResource("1_7p5ts")
-theme_override_font_sizes/font_size = 43
-text = "yotsuba's summer break has started, she needs your help in deciding her quests for this month... are you ready?"
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="choice-1" type="Button" parent="boundary/header-box" unique_id=299074873]
-layout_mode = 0
-offset_left = 52.0
-offset_top = 332.0
-offset_right = 499.0
-offset_bottom = 435.0
-theme_override_fonts/font = ExtResource("1_7p5ts")
-theme_override_font_sizes/font_size = 30
-text = "walk around the city and talk with people!"
-autowrap_mode = 2
-script = SubResource("GDScript_mhh5u")
-metadata/_edit_use_anchors_ = true
-
-[node name="choice-2" type="Button" parent="boundary/header-box" unique_id=1811534981]
-layout_mode = 0
-offset_left = 527.0
-offset_top = 329.0
-offset_right = 975.0
-offset_bottom = 436.0
-theme_override_fonts/font = ExtResource("1_7p5ts")
-theme_override_font_sizes/font_size = 30
-text = "make a flower bag!"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="boundary" unique_id=2035268363]
-layout_mode = 0
-offset_left = 264.0
-offset_top = 20.0
-offset_right = 738.0
-offset_bottom = 112.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_7p5ts")
-theme_override_font_sizes/font_size = 57
-text = "choose a quest:"
-metadata/_edit_use_anchors_ = true
+[node name="TextureButton" type="TextureButton" parent="." unique_id=242655757]
+custom_minimum_size = Vector2(-100, -10)
+propagate_maximum_size = true
+offset_left = 58.0
+offset_top = 79.0
+offset_right = 1338.0
+offset_bottom = 812.0
+texture_normal = ExtResource("1_7p5ts")
+stretch_mode = 0

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cjmttgo0ehrvg"]
+
+[sub_resource type="GDScript" id="GDScript_wvhbo"]
+script/source = "extends AudioStreamPlayer
+
+
+
+func _ready():
+	stream = preload(\"res://music/music.ogg\")
+	play()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Node2D" type="Node2D" unique_id=1115064625]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2115763595]
+script = SubResource("GDScript_wvhbo")
