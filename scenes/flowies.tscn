@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ca2s63w4v0y51"]
 
-[sub_resource type="GDScript" id="GDScript_ifow5"]
+[sub_resource type="GDScript" id="GDScript_wvhbo"]
 script/source = "extends Area2D
 
 const SPEED = 400.0
@@ -13,25 +13,40 @@ func _on_area_entered(area):
 	if area.is_in_group(\"npc\"):
 		area.receive_flower()
 		queue_free()
-		
-func _on_visible_on_screen_notifier_2d_screen_exited(): 
-	queue_free()
+
+
+func _on_area_exited(area: Area2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	pass # Replace with function body.
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	pass # Replace with function body.
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
-size = Vector2(42, 42)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifow5"]
+size = Vector2(44, 44)
 
-[node name="Node2D" type="Node2D" unique_id=1056547774]
+[node name="flowies" type="Area2D" unique_id=927696236]
+script = SubResource("GDScript_wvhbo")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1386041171]
-script = SubResource("GDScript_ifow5")
-
-[node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=1226819441]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=582690277]
+offset_top = 2.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 42.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=704106722]
-position = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_wvhbo")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=330566109]
+position = Vector2(20, 22)
+shape = SubResource("RectangleShape2D_ifow5")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D" unique_id=1268580528]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1029207458]
+position = Vector2(9, 11)
+rect = Rect2(-10, -10, 43, 43)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

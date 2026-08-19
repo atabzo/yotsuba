@@ -1,9 +1,25 @@
 [gd_scene format=3 uid="uid://csvqyl8e26m0u"]
 
+[ext_resource type="PackedScene" uid="uid://bp7qnvpnkmlc0" path="res://scenes/yotsuba.tscn" id="1_rft0q"]
+[ext_resource type="PackedScene" uid="uid://225i5l6j6ljd" path="res://scenes/sad_blobby.tscn" id="2_tw3xb"]
+[ext_resource type="PackedScene" uid="uid://ca2s63w4v0y51" path="res://scenes/flowies.tscn" id="3_mhh5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(1960, 336)
+
 [node name="story-opener" type="Node2D" unique_id=1768813027]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=222121052]
-offset_left = -23.0
-offset_top = -19.0
-offset_right = 1943.0
-offset_bottom = 1102.0
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1209508115]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=873578750]
+position = Vector2(969, 931)
+shape = SubResource("RectangleShape2D_wvhbo")
+
+[node name="yotsuba" parent="." unique_id=1515739901 instance=ExtResource("1_rft0q")]
+position = Vector2(562, 674)
+
+[node name="sad-blobby" parent="yotsuba" unique_id=1650759187 instance=ExtResource("2_tw3xb")]
+position = Vector2(221, 41)
+
+[node name="flowies" parent="." unique_id=1056547774 instance=ExtResource("3_mhh5u")]
+position = Vector2(655, 633)
