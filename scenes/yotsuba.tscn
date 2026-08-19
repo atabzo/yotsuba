@@ -5,64 +5,30 @@
 [sub_resource type="GDScript" id="GDScript_ivegd"]
 script/source = "extends CharacterBody2D
 
-@export var move_speed := 350.0
-@export var turn_speed := 3.0
-@export var fly_speed := 150.0
-@export var max_height := 200.0
-@export var bank_angle := 15.0        
-@export var bank_smooth := 8.0   
+const SPEED = 200.0
+var facing_direction = 1  # 1 = right, -1 = left
 
-var height := 0.0
-var facing_left := false
-
-@onready var animated_sprite := $AnimatedSprite2D
+@export var flower_scene: PackedScene
 
 func _physics_process(delta):
-	# TURN (A / D)
-	var turn_input := Input.get_axis(\"move_left\", \"move_right\")
-	rotation += turn_input * turn_speed * delta
-	
-	# Track facing direction
-	if turn_input < 0:
-		facing_left = true
-	elif turn_input > 0:
-		facing_left = false
-	
-	# VISUAL BANK
-	var target_bank := -turn_input * bank_angle
-	animated_sprite.rotation_degrees = lerp(
-		animated_sprite.rotation_degrees,
-		target_bank,
-		bank_smooth * delta
-	)
-	
-	# FORWARD MOVEMENT (W)
-	var forward := Input.get_action_strength(\"move_forward\")
-	var direction := Vector2.UP.rotated(rotation)
-	velocity = direction * forward * move_speed
-	
-	# FLY UP / DOWN (Space / Shift)
-	if Input.is_action_pressed(\"fly_up\"):
-		height += fly_speed * delta
-	if Input.is_action_pressed(\"fly_down\"):
-		height -= fly_speed * delta
-	height = clamp(height, 0.0, max_height)
-	
-	animated_sprite.position.y = -height
-	var scale_factor = 1.0 + height / 600.0
-	animated_sprite.scale = Vector2(
-		scale_factor * (-1 if facing_left else 1),
-		scale_factor
-	)
-	
-	if height > 10:
-		animated_sprite.play(\"fly\")
-	elif forward < 1:
-		animated_sprite.play(\"idle\")
-	else:
-		animated_sprite.play(\"fly\")
-	
+	var direction = Input.get_axis(\"move_left\", \"move_right\")
+	velocity.x = direction * SPEED
+
+	if direction != 0:
+		facing_direction = sign(direction)
+
 	move_and_slide()
+
+	if Input.is_action_just_pressed(\"shoot\"):
+		shoot_flower()
+
+func shoot_flower():
+	if flower_scene == null:
+		return
+	var flower = flower_scene.instantiate()
+	flower.global_position = global_position + Vector2(20 * facing_direction, 0)
+	flower.direction = facing_direction
+	get_parent().add_child(flower)
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivegd"]

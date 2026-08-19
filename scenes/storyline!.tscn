@@ -1,21 +1,9 @@
 [gd_scene format=3 uid="uid://csvqyl8e26m0u"]
 
-[ext_resource type="Texture2D" uid="uid://r7y5knbr33mi" path="res://assets/buttons/photo_2026-08-12_04-10-55 (2).jpg" id="1_7p5ts"]
-
 [node name="story-opener" type="Node2D" unique_id=1768813027]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=222121052]
-offset_left = -108.0
-offset_top = 25.0
-offset_right = 1367.0
-offset_bottom = 885.0
-
-[node name="TextureButton" type="TextureButton" parent="." unique_id=242655757]
-custom_minimum_size = Vector2(-100, -10)
-propagate_maximum_size = true
-offset_left = 58.0
-offset_top = 79.0
-offset_right = 1338.0
-offset_bottom = 812.0
-texture_normal = ExtResource("1_7p5ts")
-stretch_mode = 0
+offset_left = -23.0
+offset_top = -19.0
+offset_right = 1943.0
+offset_bottom = 1102.0

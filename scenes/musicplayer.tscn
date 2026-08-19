@@ -4,11 +4,9 @@
 script/source = "extends AudioStreamPlayer
 
 
-
 func _ready():
 	stream = preload(\"res://music/music.ogg\")
 	play()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
