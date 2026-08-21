@@ -1,4 +1,4 @@
-yotsuba's summer adventures!
+## yotsuba's summer adventures!
 
 her summer break starts and now it's time for yotsuba to do some side quests:
 	
